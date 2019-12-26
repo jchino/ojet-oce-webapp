@@ -1,0 +1,16 @@
+env:
+  browser: true
+  es6: true
+extends:
+  - 'eslint:recommended'
+  - 'plugin:requirejs/recommended'
+globals:
+  requirejs: readonly
+parserOptions:
+  ecmaVersion: 2018
+plugins:
+  - requirejs
+rules:
+  semi:
+    - error
+    - always

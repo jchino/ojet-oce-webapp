@@ -1,0 +1,26 @@
+{
+  "name": "ojet-oce-webapp",
+  "version": "1.0.0",
+  "description": "An Oracle JavaScript Extension Toolkit(JET) web app",
+  "author": "Junko Chino (https://github.com/jchino)",
+  "dependencies": {
+    "@oracle/oraclejet": "~8.0.0"
+  },
+  "devDependencies": {
+    "@oracle/ojet-cli": "^8.0.0",
+    "@oracle/oraclejet-tooling": "~8.0.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-requirejs": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "ojet serve web",
+    "test": "eslint src/**/*.js",
+    "ojet": "ojet",
+    "build": "ojet build web",
+    "clean": "ojet clean web"
+  },
+  "private": true
+}
