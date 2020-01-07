@@ -7,7 +7,7 @@ extends:
 globals:
   requirejs: readonly
 parserOptions:
-  ecmaVersion: 2018
+  ecmaVersion: 6
 plugins:
   - requirejs
 rules:
