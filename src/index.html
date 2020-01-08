@@ -16,19 +16,30 @@
   <div id="pageBody" class="oj-web-applayout-page">
     <div role="main" class="oj-web-applayout-content">
       <div class="oj-web-applayout-max-width">
-        <div id="loginPanel" class="oj-panel">
-          <div style="max-width: 640px; margin: auto">
-            <h2 style="text-align: center;">ログイン</h2>
-            <oj-form-layout label-edge="inside">
-              <oj-input-text id="baseUrlField" label-hint="OCE ベース URL" label-edge="inside" value="{{baseUrl}}"></oj-input-text>
-              <oj-input-text id="usernameField" label-hint="ユーザー名" label-edge="inside" value="{{username}}"></oj-input-text>
-              <oj-input-password id="passwordField" label-hint="パスワード" label-edge="inside" value="{{password}}"></oj-input-password>
-              <oj-button chroming="callToAction" on-oj-action="[[getUsersHomeContents]]"
-                class="oj-button-lg" style="width: 100%;">ログイン</oj-button>
-            </oj-form-layout>
-          </div>
+        <div id="loginPanel" class="oj-panel" style="max-width: 640px; margin: auto">
+          <h2 style="text-align: center;">ログイン</h2>
+          <oj-form-layout label-edge="inside">
+            <oj-input-text id="baseUrlField" label-hint="OCE ベース URL" label-edge="inside" value="{{baseUrl}}"></oj-input-text>
+            <oj-input-text id="usernameField" label-hint="ユーザー名" label-edge="inside" value="{{username}}"></oj-input-text>
+            <oj-input-password id="passwordField" label-hint="パスワード" label-edge="inside" value="{{password}}"></oj-input-password>
+          </oj-form-layout>
+          <oj-messages messages="[[loginMsgsProvider]]"></oj-messages>
+          <oj-button chroming="callToAction" on-oj-action="[[getUsersHomeContents]]" chroming="callToAction"
+            class="oj-button-lg" style="width: 100%;">ログイン</oj-button>
         </div>
-        <div id="docsPanel" class="oj-panel" style="display: none;">
+        <div id="docsPanel" class="oj-panel oj-helper-hidden" style="max-width: 640px; margin: auto">
+          <h2>ファイルのアップロード</h2>
+          <oj-form-layout label-edge="inside">
+            <oj-select-single data="[[foldersProvider]]" label-edge="inside" label-hint="フォルダ" value="{{folderId}}"></oj-select-single>
+          </oj-form-layout>
+          <oj-file-picker on-oj-select="[[fileSelctAction]]" style="max-width: 100%;" class="oj-sm-margin-1x-bottom">
+          </oj-file-picker>
+          <div class="oj-sm-margin-1x-vertical">
+            アップロードするファイル: <oj-bind-text value="[[uploadFileName]]"></oj-bind-text>
+          </div>
+          <oj-messages messages="[[uploadMsgsProvider]]"></oj-messages>
+          <oj-button chroming="callToAction" on-oj-action="[[executeUpload]]" chroming="callToAction"
+            class="oj-button-lg" style="width: 100%;">アップロード</oj-button>
         </div>
       </div>
     </div>
