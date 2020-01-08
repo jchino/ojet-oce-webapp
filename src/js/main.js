@@ -124,7 +124,7 @@ function (ko, $, Bootstrap, ArrayDataProvider, Logger) {
     this.executeUpload = function () {
       this.uploadMsgs.removeAll();
       const data = new FormData();
-      data.append('jsonInputParameters', JSON.stringify({ parentID: this.folderId() }));
+      data.append('jsonInputParameters', JSON.stringify({ parentID: this.folderId() ? this.folderId() : 'self' }));
       data.append('primaryFile', this.uploadFile());
       $.ajax({
         url: this.baseUrl() + '/api/1.2/files/data',
